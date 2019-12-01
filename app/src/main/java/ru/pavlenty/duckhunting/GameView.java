@@ -51,22 +51,22 @@ public class GameView extends View {
         super.onDraw( canvas );
         // рисуем ружье
 
-        canvas.drawCircle( game.getCannonCenter( ).x, game.getCannonCenter( ).y,
+        canvas.drawCircle( game.getCannonCenter( ).x, game.getCannonCenter( ).y - 400,
                 game.getCannonRadius( ), paint );
 
         // рисуем дуло ружья
         canvas.drawLine(
-                game.getCannonCenter( ).x, game.getCannonCenter( ).y,
+                game.getCannonCenter( ).x, game.getCannonCenter( ).y - 400,
                 game.getCannonCenter( ).x + game.getBarrelLength( )
                         * ( float ) Math.cos( game.getCannonAngle( ) ),
-                game.getCannonCenter( ).y - game.getBarrelLength( )
+                game.getCannonCenter( ).y - 400 - game.getBarrelLength( )
                         * ( float ) Math.sin( game.getCannonAngle( ) ),
                 paint );
 
         // рисуем пулю
         if( ! game.bulletOffScreen( ) )
             canvas.drawCircle( game.getBulletCenter( ).x,
-                    game.getBulletCenter( ).y, game.getBulletRadius( ), paint );
+                    game.getBulletCenter( ).y - 400, game.getBulletRadius( ), paint );
 
         // рисуем утку
         duckFrame = ( duckFrame + 1 ) % ducks.length;
